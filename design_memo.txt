@@ -1,0 +1,15 @@
+For this assignment, I created two different systems using a binary tree and a min-heap. I think that using a tree for the doctors makes
+the most sense because it allows the hospital to have a clear structure of who reports to who. Having everything organized this way 
+makes it easier to understand the different levels of management and who is responsible for certain employees. Instead of having all 
+the doctors in one long list, the tree allows everything to be connected based on their reporting structure.
+
+The three different traversal methods can be useful depending on what information the hospital is trying to look at. Preorder would 
+be helpful when looking at the structure starting with the head doctor and then moving down to the other doctors. Inorder allows the
+system to go through the doctors starting from the left side of the tree, then the manager, and finally the right side. Postorder
+could be helpful when the hospital wants to review information from the doctors before getting to their manager. I think having
+these different methods is important because not every situation requires the information to be looked at in the same order.
+
+For the emergency priority queue, I used a min-heap because patients should be treated based on how serious their condition is 
+rather than when they arrived. The heap makes sure that the patient with the highest priority is always at the top. As new patients 
+arrive or others are treated, the system reorganizes itself to keep the correct order. I think this is especially important in an 
+emergency room because situations can change quickly, and the hospital needs a way to keep track of which patients need help first.
