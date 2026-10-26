@@ -86,59 +86,40 @@ class MinHeap:
 
 
 # Test the Patient and MinHeap classes
-patient1 = Patient("Riley", 2)
-patient2 = Patient("Jordan", 5)
 
-heap = MinHeap()
+if __name__ == "__main__":
+    heap = MinHeap()
 
-print("Patient 1:", patient1.name, patient1.urgency)
-print("Patient 2:", patient2.name, patient2.urgency)
-print("Current heap:", heap.data)
+    heap.insert(Patient("Jordan", 3))
+    heap.insert(Patient("Taylor", 1))
+    heap.insert(Patient("Avery", 5))
 
-# Test the emergency priority queue
-heap = MinHeap()
+    heap.print_heap()
 
-heap.insert(Patient("Jordan", 3))
-heap.insert(Patient("Taylor", 1))
-heap.insert(Patient("Avery", 5))
+    # Check the next patient
+    next_up = heap.peek()
+    print("\nNext Patient:", next_up.name, next_up.urgency)
 
-heap.print_heap()
-
-# Check the most urgent patient
-next_up = heap.peek()
-print("\nNext Patient:", next_up.name, next_up.urgency)
-
-# Remove the most urgent patient
-served = heap.remove_min()
-print("\nPatient Served:", served.name)
-
-# Print the updated queue
-heap.print_heap()
-
-# Check the most urgent patient
-next_up = heap.peek()
-print("\nNext Patient:", next_up.name, next_up.urgency)
-
-# Remove the most urgent patient
-served = heap.remove_min()
-print("\nPatient Served:", served.name)
-
-# Print the updated queue
-heap.print_heap()
-
-# Test edge cases
-print("\nTesting Edge Cases:")
-
-# Test an invalid urgency level
-heap.insert(Patient("Morgan", 12))
-
-# Test removing patients until the queue is empty
-while heap.peek() is not None:
+    # Remove the most urgent patient
     served = heap.remove_min()
-    print("Patient Served:", served.name)
+    print("\nPatient Served:", served.name)
 
-# Test an empty queue
-print("Peek Empty Queue:", heap.peek())
-print("Remove Empty Queue:", heap.remove_min())
+    heap.print_heap()
 
-heap.print_heap()
+    # Test edge cases
+    print("\nTesting Edge Cases:")
+
+    # Test an invalid urgency level
+    heap.insert(Patient("Morgan", 12))
+
+    # Remove the remaining patients
+    while heap.peek() is not None:
+        served = heap.remove_min()
+        print("Patient Served:", served.name)
+
+    # Test an empty queue
+    print("Peek Empty Queue:", heap.peek())
+    print("Remove Empty Queue:", heap.remove_min())
+
+    heap.print_heap()
+
